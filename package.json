@@ -1,0 +1,28 @@
+{
+  "name": "pi2-tdd-node-dagoba202627",
+  "version": "1.0.0",
+  "description": "Funciones fibonacci y esPinValido desarrolladas con TDD (Vitest) e integración continua con GitHub Actions",
+  "main": "src/fibonacci.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidGB-2004/PI2-TDD-Node-dagoba202627.git"
+  },
+  "keywords": ["tdd", "vitest", "github-actions", "ci"],
+  "author": "David Gómez Barberá",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidGB-2004/PI2-TDD-Node-dagoba202627/issues"
+  },
+  "homepage": "https://github.com/DavidGB-2004/PI2-TDD-Node-dagoba202627#readme",
+  "devDependencies": {
+    "vitest": "^5.1.0"
+  },
+  "dependencies": {
+    "chalk": "^6.0.1"
+  }
+}
