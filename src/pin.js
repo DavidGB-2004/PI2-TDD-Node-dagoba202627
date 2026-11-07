@@ -1,28 +1,23 @@
 // src/pin.js
-// Fase GREEN: implementación mínima que hace pasar los tests.
 
+// Exactamente 4 o 6 dígitos (0-9), sin ningún otro carácter
+const FORMATO_PIN = /^(\d{4}|\d{6})$/
+
+// Un dígito seguido de sí mismo hasta el final: '1111', '888888'...
+const DIGITOS_REPETIDOS = /^(\d)\1+$/
+
+/**
+ * Comprueba si un PIN es válido.
+ *
+ * @param {unknown} pin Valor a comprobar.
+ * @returns {boolean} true si es un string de 4 o 6 dígitos
+ *   que no son todos iguales; false en cualquier otro caso
+ *   (null, undefined, vacío, números, letras...).
+ */
 export function esPinValido(pin) {
-  // No puede ser null ni undefined, y debe ser un string
-  if (pin === null || pin === undefined) return false
-  if (typeof pin !== 'string') return false
-
-  // No puede estar vacío
-  if (pin === '') return false
-
-  // Longitud 4 o 6
-  if (pin.length !== 4 && pin.length !== 6) return false
-
-  // Solo dígitos 0-9
-  for (const caracter of pin) {
-    if (caracter < '0' || caracter > '9') return false
-  }
-
-  // No todos los dígitos iguales
-  let todosIguales = true
-  for (const caracter of pin) {
-    if (caracter !== pin[0]) todosIguales = false
-  }
-  if (todosIguales) return false
-
-  return true
+  return (
+    typeof pin === 'string' &&
+    FORMATO_PIN.test(pin) &&
+    !DIGITOS_REPETIDOS.test(pin)
+  )
 }
